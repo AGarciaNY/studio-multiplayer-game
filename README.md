@@ -1,5 +1,4 @@
-Code Nation Studio Multiplayer Game
-===================================
+# Code Nation Studio Multiplayer Game
 
 **React/Firebase project designed for [Code Nation][code-nation] students**
 
@@ -12,8 +11,7 @@ At the end of the project, teachers will merge all groups' projects into a
 single React application to be hosted forever, making any game playable at any
 time (and available for any future job application).
 
-Groups
-------
+## Groups
 
 Students will work in groups of three. Each students should choose one "focus":
 _architect_, _designer_, or _implementer_. The _architect_ will draft
@@ -23,8 +21,7 @@ the theme consistent, etc. The _implementer_ will make sure everything works,
 writing most of the code, confirming whether the _architect_ and the
 _designer_'s plans are possible, etc.
 
-Adding a New Game
------------------
+## Adding a New Game
 
 First, add some data about your game to `src/gameData.js`. See the example
 below, which adds `mygameid` to the `gameData` object. It is a four player
@@ -61,17 +58,17 @@ copy this template for your own game. Notice how it extends from
 `GameComponent` and uses the following functions to access important game
 session data:
 
-  1. `this.onSessionDataChanged(data)`: Called whenever the session data stored
-     at `/session/<id>/` changes (passes said `data` as the argument)
-  1. `this.getSessionDatabaseRef()`: Returns a Firebase real-time database
-     reference to the current session data, i.e. `/session/<id>/`
-  1. `this.getSessionId()`: Returns the current session ID as stored in
-     Firebase
-  1. `this.getSessionUserIds()`: Returns the list of user IDs connected to the
-     current session
-  1. `this.getSessionCreatorUserId()`: Returns the user ID of the one who
-     created this current session
-  1. `this.getMyUserId()`: Returns the user ID of the current user, i.e. YOU
+1. `this.onSessionDataChanged(data)`: Called whenever the session data stored
+   at `/session/<id>/` changes (passes said `data` as the argument)
+1. `this.getSessionDatabaseRef()`: Returns a Firebase real-time database
+   reference to the current session data, i.e. `/session/<id>/`
+1. `this.getSessionId()`: Returns the current session ID as stored in
+   Firebase
+1. `this.getSessionUserIds()`: Returns the list of user IDs connected to the
+   current session
+1. `this.getSessionCreatorUserId()`: Returns the user ID of the one who
+   created this current session
+1. `this.getMyUserId()`: Returns the user ID of the current user, i.e. YOU
 
 All of the above functions are accessing the [Firebase Realtime
 Database][firebase-db] path `/session/<session-id>`. This is the database
@@ -109,15 +106,14 @@ export default class MyGameComponent extends GameComponent {
 }
 ```
 
-Resources
----------
+## Resources
 
-  - Material UI: [React components documentation][material-ui]
-  - React: [ReactJS documentation][reactjs]
-  - Firebase: [Firebase JS documentation][firebase-js]
+- Material UI: [React components documentation][material-ui]
+- React: [ReactJS documentation][reactjs]
+- Firebase: [Firebase JS documentation][firebase-js]
 
-[code-nation]:https://codenation.org
-[firebase-db]:https://firebase.google.com/docs/database/web/read-and-write
-[firebase-js]:https://firebase.google.com/docs/reference/js/
-[material-ui]:https://www.material-ui.com/#/components/app-bar
-[reactjs]:https://reactjs.org/docs/hello-world.html
+[code-nation]: https://codenation.org
+[firebase-db]: https://firebase.google.com/docs/database/web/read-and-write
+[firebase-js]: https://firebase.google.com/docs/reference/js/
+[material-ui]: https://www.material-ui.com/#/components/app-bar
+[reactjs]: https://reactjs.org/docs/hello-world.html

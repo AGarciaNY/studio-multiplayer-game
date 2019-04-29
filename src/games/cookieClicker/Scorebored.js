@@ -49,9 +49,9 @@ export default class Scorebored extends React.Component {
             <td>produce 25 cookies ps</td>
           </tr>
           <tr>
-            <td>Tax evasion</td>
+            <td>Mega Factory</td>
             <td>$10000</td>
-            <td>takes away extra costs</td>
+            <td>Produce 100 Cookies ps</td>
           </tr>
         </table>
       </div>
