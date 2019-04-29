@@ -13,14 +13,15 @@ export default class CookieClicker extends GameComponent {
   //     user_id: UserApi.getName(this.getMyUserId())
   //   });
   // }
-  Start Timer 
-  Function Timer(){
-  var now = new Date().getTime();
-  var elapsed = new Date().getTime() - now;
-  document.getElementById("timer").innerHtml = elapsed;
-  if (elapsed > 300000 /*milliseconds in 5 minutes*/) {
-  alert ("5 minutes up!");
-  End Timer
+  //start timer
+  // Function Timer(){
+  //   var now = new Date().getTime();
+  //   var elapsed = new Date().getTime() - now;
+  //   document.getElementById("timer").innerHtml = elapsed;
+  //   if (elapsed > 300000 /*milliseconds in 5 minutes*/) {
+  //   alert ("5 minutes up!");
+  //End Timer
+
   render() {
     var id = this.getSessionId();
     var users = this.getSessionUserIds().map(user_id => (
@@ -44,5 +45,6 @@ export default class CookieClicker extends GameComponent {
         <Scorebored />
         <Cookie />
       </div>
-    );     
+    );
+  }
 }

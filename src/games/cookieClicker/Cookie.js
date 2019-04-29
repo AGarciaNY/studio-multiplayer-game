@@ -8,12 +8,13 @@ export default class ClickableCookie extends React.Component {
     this.state = { click_count: 0 };
   }
   handleClick() {
-    var new_click_count = this.state.click_count + 1;
-    this.setState({ click_count: new_click_count });
+    var player1s = this.state.click_count + 1;
+    this.setState({ click_count: player1s });
     this.getSessionDatabaseRef().set({
-      player1: this.state.click_count
+      player1s: this.state.click_count
     });
   }
+  onSessionDataChanged(data) {}
 
   render() {
     return (
