@@ -1,5 +1,8 @@
 import React from "react";
 import "./cookie.css";
+var times = 0;
+var timem = 30;
+
 export default class Scorebored extends React.Component {
   render() {
     return (
@@ -13,7 +16,7 @@ export default class Scorebored extends React.Component {
           </tr>
           <tr className="playersc">
             <td>Totall cookys:(num)</td>
-            <td>Time left:</td>
+            <td>Time left:times</td>
             <td>Totall cookys:(num)</td>
           </tr>
           <tr>

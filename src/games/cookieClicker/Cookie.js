@@ -5,7 +5,9 @@ import UserApi from "../../UserApi.js"; // mport CookieClicker from "./games/coo
 export default class ClickableCookie extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { click_count: 0 };
+    this.state = {
+      click_count: 0
+    };
   }
   handleClick() {
     var player1s = this.state.click_count + 1;
