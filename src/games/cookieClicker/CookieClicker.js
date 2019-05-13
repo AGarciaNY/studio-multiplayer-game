@@ -3,6 +3,8 @@ import React from "react";
 import UserApi from "../../UserApi.js";
 import Scorebored from "./Scorebored.js";
 import Cookie from "./Cookie.js";
+import Time from "./Time.js";
+
 export default class CookieClicker extends GameComponent {
   constructor(props) {
     super(props);
@@ -36,17 +38,23 @@ export default class CookieClicker extends GameComponent {
   }
 
   winningOrLosing() {
-    if (playerOnePoints > playerTwoPoints) {
-      var winner = playerOne;
-    } else if ((playerOnePoints = playerTwoPoints)) {
-      var winner = null;
+    var winner = null;
+    if (this.state.hostScore > this.state.guestScore) {
+      winner = this.getSessionCreatorUserId();
+    } else if (this.state.hostScore < this.state.guestScore) {
+      winner = this.getSessionUserIds()[1];
+    }
+    if (winner === null) {
+      return "Tied";
+    } else if (winner === this.getMyUserId()) {
+      return "Winning";
     } else {
-      var winner = PlayerTwo;
+      return "Losing";
     }
   }
 
   startGame(time) {
-    var startTime = newDate();
+    var startTime = new Date();
     startTime.setSeconds(startTime.getSeconds + 10);
     this.getSessionDatabaseRef().update({
       timeleft: time,
@@ -66,28 +74,73 @@ export default class CookieClicker extends GameComponent {
     ) {
       return (
         <div>
-          <button id="fivem" onClick={() => this.startgame(5)}>
+          <button
+            className="stime"
+            id="fivem"
+            onClick={() => this.startGame(5)}
+          >
             5 minuts
           </button>
-          <button id="tenm" onClick={() => this.startgame(10)}>
+          <button
+            className="stime"
+            id="tenm"
+            onClick={() => this.startGame(10)}
+          >
             10 minuts
           </button>
-          <button id="fithteenm" onClick={() => this.startgame(15)}>
+          <button
+            className="stime"
+            id="fithteenm"
+            onClick={() => this.startGame(15)}
+          >
             15 minuts
           </button>
         </div>
       );
-    } else if (!this.state.stateGameStarted) {
+    } else if (!this.state.hasGameStarted) {
       return (
         <div>
           <p>Waiting for Host to start the game</p>
         </div>
       );
-    } else if (this.state.hasGameStarted) {
+    } else if (
+      this.state.hasGameStarted &&
+      this.getSessionCreatorUserId() === this.getMyUserId()
+    ) {
       return (
         <div>
-          <Scorebored />
-          <Cookie />
+          <Time startTime={this.state.startTime} />
+          <Scorebored
+            PlayerOne={UserApi.getName(this.getSessionUserIds()[0])}
+            PlayerTwo={UserApi.getName(this.getSessionUserIds()[1])}
+            p1s={this.state.hostScore}
+            p2s={this.state.guestScore}
+            winOrLoss={this.state.winningOrLosing}
+          />
+          <Cookie
+            clickHandler={() => this.updateScore()}
+            score={this.state.hostScore}
+          />
+        </div>
+      );
+    } else if (
+      this.state.hasGameStarted &&
+      this.getSessionCreatorUserId() !== this.getMyUserId()
+    ) {
+      return (
+        <div>
+          <Time startTime={this.state.startTime} />
+          <Scorebored
+            PlayerOne={UserApi.getName(this.getSessionUserIds()[0])}
+            PlayerTwo={UserApi.getName(this.getSessionUserIds()[1])}
+            p1s={this.state.hostScore}
+            p2s={this.state.guestScore}
+            winOrLoss={this.state.winningOrLosing}
+          />
+          <Cookie
+            clickHandler={() => this.updateScore()}
+            score={this.state.guestScore}
+          />
         </div>
       );
     }

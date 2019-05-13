@@ -1,7 +1,5 @@
 import React from "react";
 import "./cookie.css";
-var times = 0;
-var timem = 30;
 
 export default class Scorebored extends React.Component {
   render() {
@@ -10,17 +8,16 @@ export default class Scorebored extends React.Component {
         <table className="score">
           <caption>ScoreBored</caption>
           <tr className="playersname">
-            <th>Player One:(name)</th>
-            <th>Lastname</th>
-            <th>Player two:(name)</th>
+            <th>Player One:{this.props.PlayerOne}</th>
+            <th>Player two:{this.props.PlayerTwo}</th>
           </tr>
           <tr className="playersc">
-            <td>Totall cookys:(num)</td>
-            <td>Time left:times</td>
-            <td>Totall cookys:(num)</td>
+            <td>Score:{this.props.p1s}</td>
+            <td>Time left:</td>
+            <td>Score:{this.props.p2s}</td>
           </tr>
           <tr>
-            <td>Wining/losing</td>
+            <td>Win/Loss:{this.props.winOrLoss}</td>
             <td>(time)</td>
             <td>Wining/losing</td>
           </tr>
