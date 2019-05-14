@@ -11,7 +11,8 @@ export default class CookieClicker extends GameComponent {
     this.getSessionDatabaseRef().update({
       hostScore: 0,
       guestScore: 0,
-      hasGameStarted: false
+      hasGameStarted: false,
+      timeleft: 0
     });
   }
 
@@ -57,7 +58,7 @@ export default class CookieClicker extends GameComponent {
     var startTime = new Date();
     startTime.setSeconds(startTime.getSeconds + 10);
     this.getSessionDatabaseRef().update({
-      timeleft: time,
+      timeleft: this.state.timeleft + time,
       startTime: startTime,
       hasGameStarted: true
     });
@@ -73,7 +74,7 @@ export default class CookieClicker extends GameComponent {
       this.getSessionCreatorUserId() === this.getMyUserId()
     ) {
       return (
-        <div>
+        <div className="buttonholder">
           <button
             className="stime"
             id="fivem"
@@ -109,13 +110,17 @@ export default class CookieClicker extends GameComponent {
     ) {
       return (
         <div>
-          <Time startTime={this.state.startTime} />
+          <Time
+            startTime={this.state.timeleft}
+            startyn={this.state.hasGameStarted}
+          />
           <Scorebored
             PlayerOne={UserApi.getName(this.getSessionUserIds()[0])}
             PlayerTwo={UserApi.getName(this.getSessionUserIds()[1])}
             p1s={this.state.hostScore}
             p2s={this.state.guestScore}
             winOrLoss={this.state.winningOrLosing}
+            startTime={this.state.timeleft}
           />
           <Cookie
             clickHandler={() => this.updateScore()}
@@ -129,7 +134,10 @@ export default class CookieClicker extends GameComponent {
     ) {
       return (
         <div>
-          <Time startTime={this.state.startTime} />
+          <Time
+            startTime={this.state.timeleft}
+            startyn={this.state.hasGameStarted}
+          />
           <Scorebored
             PlayerOne={UserApi.getName(this.getSessionUserIds()[0])}
             PlayerTwo={UserApi.getName(this.getSessionUserIds()[1])}

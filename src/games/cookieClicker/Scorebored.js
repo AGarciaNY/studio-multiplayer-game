@@ -9,6 +9,7 @@ export default class Scorebored extends React.Component {
           <caption>ScoreBored</caption>
           <tr className="playersname">
             <th>Player One:{this.props.PlayerOne}</th>
+            <th />
             <th>Player two:{this.props.PlayerTwo}</th>
           </tr>
           <tr className="playersc">
@@ -18,7 +19,7 @@ export default class Scorebored extends React.Component {
           </tr>
           <tr>
             <td>Win/Loss:{this.props.winOrLoss}</td>
-            <td>(time)</td>
+            <td>{this.props.startTime}</td>
             <td>Wining/losing</td>
           </tr>
         </table>
