@@ -12,7 +12,8 @@ export default class CookieClicker extends GameComponent {
       hostScore: 0,
       guestScore: 0,
       hasGameStarted: false,
-      timeleft: 0
+      timelefts: 0,
+      timeleftm: 0
     });
   }
 
@@ -21,7 +22,8 @@ export default class CookieClicker extends GameComponent {
       hostScore: data.hostScore,
       guestScore: data.guestScore,
       hasGameStarted: data.hasGameStarted,
-      timeleft: data.timeleft,
+      timeleftm: data.timeleftm,
+      timelefts: data.timelefts,
       startTime: data.startTime
     });
   }
@@ -58,7 +60,7 @@ export default class CookieClicker extends GameComponent {
     var startTime = new Date();
     startTime.setSeconds(startTime.getSeconds + 10);
     this.getSessionDatabaseRef().update({
-      timeleft: this.state.timeleft + time,
+      timeleftm: this.state.timeleftm + time,
       startTime: startTime,
       hasGameStarted: true
     });
@@ -111,7 +113,8 @@ export default class CookieClicker extends GameComponent {
       return (
         <div>
           <Time
-            startTime={this.state.timeleft}
+            startTimemin={this.state.timeleftm}
+            startTimesec={this.state.timelefts}
             startyn={this.state.hasGameStarted}
           />
           <Scorebored
@@ -120,7 +123,8 @@ export default class CookieClicker extends GameComponent {
             p1s={this.state.hostScore}
             p2s={this.state.guestScore}
             winOrLoss={this.state.winningOrLosing}
-            startTime={this.state.timeleft}
+            startTimemin={this.state.timeleftm}
+            startTimesec={this.state.timelefts}
           />
           <Cookie
             clickHandler={() => this.updateScore()}
@@ -135,7 +139,8 @@ export default class CookieClicker extends GameComponent {
       return (
         <div>
           <Time
-            startTime={this.state.timeleft}
+            startTimemin={this.state.timeleftm}
+            startTimesec={this.state.timelefts}
             startyn={this.state.hasGameStarted}
           />
           <Scorebored

@@ -19,7 +19,9 @@ export default class Scorebored extends React.Component {
           </tr>
           <tr>
             <td>Win/Loss:{this.props.winOrLoss}</td>
-            <td>{this.props.startTime}</td>
+            <td>
+              {this.props.startTimemin}:{this.props.startTimesec}
+            </td>
             <td>Wining/losing</td>
           </tr>
         </table>
