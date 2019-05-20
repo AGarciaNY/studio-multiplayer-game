@@ -61,6 +61,7 @@ export default class CookieClicker extends GameComponent {
     startTime.setSeconds(startTime.getSeconds + 10);
     this.getSessionDatabaseRef().update({
       timeleftm: this.state.timeleftm + time,
+      timelefts: this.state.timelefts + time,
       startTime: startTime,
       hasGameStarted: true
     });
@@ -112,11 +113,6 @@ export default class CookieClicker extends GameComponent {
     ) {
       return (
         <div>
-          <Time
-            startTimemin={this.state.timeleftm}
-            startTimesec={this.state.timelefts}
-            startyn={this.state.hasGameStarted}
-          />
           <Scorebored
             PlayerOne={UserApi.getName(this.getSessionUserIds()[0])}
             PlayerTwo={UserApi.getName(this.getSessionUserIds()[1])}
@@ -138,17 +134,14 @@ export default class CookieClicker extends GameComponent {
     ) {
       return (
         <div>
-          <Time
-            startTimemin={this.state.timeleftm}
-            startTimesec={this.state.timelefts}
-            startyn={this.state.hasGameStarted}
-          />
           <Scorebored
             PlayerOne={UserApi.getName(this.getSessionUserIds()[0])}
             PlayerTwo={UserApi.getName(this.getSessionUserIds()[1])}
             p1s={this.state.hostScore}
             p2s={this.state.guestScore}
             winOrLoss={this.state.winningOrLosing}
+            startTimemin={this.state.timeleftm}
+            startTimesec={this.state.timelefts}
           />
           <Cookie
             clickHandler={() => this.updateScore()}

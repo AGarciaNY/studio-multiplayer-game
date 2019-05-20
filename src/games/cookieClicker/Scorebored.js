@@ -34,27 +34,27 @@ export default class Scorebored extends React.Component {
           <tr>
             <td>Cursor</td>
             <td>$50</td>
-            <td>probues 1 cookei ps</td>
+            <td>produse 1 cookei ps</td>
           </tr>
           <tr>
             <td>Grandmas</td>
             <td>$100</td>
-            <td>produce 5 cookies ps</td>
+            <td>produse 5 cookies ps</td>
           </tr>
           <tr>
             <td>Farms</td>
             <td>$500</td>
-            <td>produce 10 cookeis ps</td>
+            <td>produse 10 cookeis ps</td>
           </tr>
           <tr>
             <td>Factories</td>
             <td>$1000</td>
-            <td>produce 25 cookies ps</td>
+            <td>produse 25 cookies ps</td>
           </tr>
           <tr>
             <td>Mega Factory</td>
             <td>$10000</td>
-            <td>Produce 100 Cookies ps</td>
+            <td>produse 100 Cookies ps</td>
           </tr>
         </table>
       </div>
