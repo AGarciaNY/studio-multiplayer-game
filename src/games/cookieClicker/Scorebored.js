@@ -1,5 +1,6 @@
 import React from "react";
 import "./cookie.css";
+import Time from "./Time.js";
 
 export default class Scorebored extends React.Component {
   render() {
@@ -9,7 +10,7 @@ export default class Scorebored extends React.Component {
           <caption>ScoreBored</caption>
           <tr className="playersname">
             <th>Player One:{this.props.PlayerOne}</th>
-            <th />
+            <th>{this.props.winOrLoss}</th>
             <th>Player two:{this.props.PlayerTwo}</th>
           </tr>
           <tr className="playersc">
@@ -18,46 +19,95 @@ export default class Scorebored extends React.Component {
             <td>Score:{this.props.p2s}</td>
           </tr>
           <tr>
-            <td>Win/Loss:{this.props.winOrLoss}</td>
+            <td />
             <td>
-              {this.props.startTimemin}:{this.props.startTimesec}
+              <Time
+                minutes={this.props.startTimemin}
+                seconds={this.props.startTimesec}
+              />
             </td>
-            <td>Wining/losing</td>
+            <td />
           </tr>
         </table>
         <table id="shop">
           <tr>
             <th>Items</th>
-            <th>prise</th>
+            <th>price</th>
             <th>attributes</th>
           </tr>
           <tr>
-            <td>Cursor</td>
+            <td>
+              <button
+                id="Cursors"
+                disabled={this.props.currentScore < 50}
+                onClick={() => this.props.multipleClicks(1, 50)}
+              >
+                Cursor
+              </button>
+            </td>
             <td>$50</td>
-            <td>produse 1 cookei ps</td>
+            <td>produces 1 cookie per second</td>
           </tr>
           <tr>
-            <td>Grandmas</td>
+            <td>
+              <button
+                id="Grandmas"
+                disabled={this.props.currentScore < 100}
+                onClick={() => this.props.multipleClicks(5, 100)}
+              >
+                Grandmas
+              </button>
+            </td>
             <td>$100</td>
-            <td>produse 5 cookies ps</td>
+            <td>produces 5 cookies per second</td>
           </tr>
           <tr>
-            <td>Farms</td>
+            <td>
+              <button
+                id="Farms"
+                disabled={this.props.currentScore < 500}
+                onClick={() => this.props.multipleClicks(10, 500)}
+              >
+                Farms
+              </button>
+            </td>
             <td>$500</td>
-            <td>produse 10 cookeis ps</td>
+            <td>produces 10 cookies per second</td>
           </tr>
           <tr>
-            <td>Factories</td>
+            <td>
+              <button
+                id="Factories"
+                disabled={this.props.currentScore < 1000}
+                onClick={() => this.props.multipleClicks(25, 1000)}
+              >
+                Factories
+              </button>
+            </td>
             <td>$1000</td>
-            <td>produse 25 cookies ps</td>
+            <td>produces 25 cookies per second</td>
           </tr>
           <tr>
-            <td>Mega Factory</td>
+            <td>
+              <button
+                id="MegaFactory"
+                disabled={this.props.currentScore < 10000}
+                onClick={() => this.props.multipleClicks(100, 10000)}
+              >
+                Mega Factory
+              </button>
+            </td>
             <td>$10000</td>
-            <td>produse 100 Cookies ps</td>
+            <td>produces 100 Cookies per second</td>
           </tr>
         </table>
       </div>
     );
   }
 }
+// $('.Cursors').click(){
+// function Cursor{
+//   //Needs to determine the player clicking button
+//   //Needs to add a cookie each second to the player that clicked on the button
+// }
+// }

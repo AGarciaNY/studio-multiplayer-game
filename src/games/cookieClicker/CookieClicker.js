@@ -3,7 +3,7 @@ import React from "react";
 import UserApi from "../../UserApi.js";
 import Scorebored from "./Scorebored.js";
 import Cookie from "./Cookie.js";
-import Time from "./Time.js";
+import GameOver from "./GameOver.js";
 
 export default class CookieClicker extends GameComponent {
   constructor(props) {
@@ -17,14 +17,43 @@ export default class CookieClicker extends GameComponent {
     });
   }
 
+  multipleClicks(number, cost) {
+    if (this.getSessionCreatorUserId() === this.getMyUserId()) {
+      this.getSessionDatabaseRef().update({
+        hostScore: this.state.hostScore - cost
+      });
+      var that = this;
+      var interval = setInterval(function() {
+        if (that.state.timelefts === 0 && that.state.timeleftm <= 0) {
+          clearInterval(interval);
+        }
+        that.getSessionDatabaseRef().update({
+          hostScore: that.state.hostScore + number
+        });
+      }, 1000);
+    } else {
+      this.getSessionDatabaseRef().update({
+        guestScore: this.state.guestScore - cost
+      });
+      var that = this;
+      var interval = setInterval(function() {
+        if (that.state.timelefts === 0 && that.state.timeleftm <= 0) {
+          clearInterval(interval);
+        }
+        that.getSessionDatabaseRef().update({
+          guestScore: that.state.guestScore + number
+        });
+      }, 1000);
+    }
+  }
+
   onSessionDataChanged(data) {
     this.setState({
       hostScore: data.hostScore,
       guestScore: data.guestScore,
       hasGameStarted: data.hasGameStarted,
       timeleftm: data.timeleftm,
-      timelefts: data.timelefts,
-      startTime: data.startTime
+      timelefts: data.timelefts
     });
   }
 
@@ -57,27 +86,49 @@ export default class CookieClicker extends GameComponent {
   }
 
   startGame(time) {
-    var startTime = new Date();
-    startTime.setSeconds(startTime.getSeconds + 10);
     this.getSessionDatabaseRef().update({
-      timeleftm: this.state.timeleftm + time,
-      timelefts: this.state.timelefts + time,
-      startTime: startTime,
+      timeleftm: time,
+      timelefts: 0,
       hasGameStarted: true
     });
+    var that = this;
+    var interval = setInterval(function() {
+      if (that.state.timelefts === 0) {
+        if (that.state.timeleftm <= 0) {
+          clearInterval(interval);
+        } else {
+          that.state.timelefts = 59;
+          that.state.timeleftm = that.state.timeleftm - 1;
+        }
+      } else {
+        that.state.timelefts = that.state.timelefts - 1;
+      }
+      that.getSessionDatabaseRef().update({
+        timeleftm: that.state.timeleftm,
+        timelefts: that.state.timelefts,
+        hasGameStarted: true
+      });
+    }, 100);
   }
 
   render() {
-    var id = this.getSessionId();
-    var users = this.getSessionUserIds().map(user_id => (
-      <li key={user_id}>{UserApi.getName(user_id)}</li>
-    ));
+    // var id = this.getSessionId();
+    //  var users = this.getSessionUserIds().map(user_id => (
+    //    < li key={user_id}>{UserApi.getName(user_id)}</li>
+    //  ));
     if (
       !this.state.hasGameStarted &&
       this.getSessionCreatorUserId() === this.getMyUserId()
     ) {
       return (
         <div className="buttonholder">
+          <button
+            className="stime"
+            id="fivem"
+            onClick={() => this.startGame(1)}
+          >
+            1 minuts
+          </button>
           <button
             className="stime"
             id="fivem"
@@ -118,13 +169,20 @@ export default class CookieClicker extends GameComponent {
             PlayerTwo={UserApi.getName(this.getSessionUserIds()[1])}
             p1s={this.state.hostScore}
             p2s={this.state.guestScore}
-            winOrLoss={this.state.winningOrLosing}
+            winOrLoss={this.winningOrLosing()}
             startTimemin={this.state.timeleftm}
             startTimesec={this.state.timelefts}
+            currentScore={this.state.hostScore}
+            multipleClicks={(number, cost) => this.multipleClicks(number, cost)}
           />
           <Cookie
             clickHandler={() => this.updateScore()}
             score={this.state.hostScore}
+          />
+          <GameOver
+            winOrLoss={this.winningOrLosing()}
+            startTimemin={this.state.timeleftm}
+            startTimesec={this.state.timelefts}
           />
         </div>
       );
@@ -142,10 +200,17 @@ export default class CookieClicker extends GameComponent {
             winOrLoss={this.state.winningOrLosing}
             startTimemin={this.state.timeleftm}
             startTimesec={this.state.timelefts}
+            currentScore={this.state.guestScore}
+            multipleClicks={(number, cost) => this.multipleClicks(number, cost)}
           />
           <Cookie
             clickHandler={() => this.updateScore()}
             score={this.state.guestScore}
+          />
+          <GameOver
+            winOrLoss={this.winningOrLosing()}
+            startTimemin={this.state.timeleftm}
+            startTimesec={this.state.timelefts}
           />
         </div>
       );
