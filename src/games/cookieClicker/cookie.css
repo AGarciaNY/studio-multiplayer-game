@@ -23,6 +23,7 @@ tr {
   text-align: center;
   border: 1px solid black;
   border-collapse: collapse;
+  font-size: 20px;
 }
 .buttonholder {
   position: absolute;
@@ -34,4 +35,23 @@ tr {
   width: 200px;
   border-radius: 20px;
   font-size: 10px;
+}
+.cookie {
+  height: 500px;
+  widows: 500px;
+  position: absolute;
+  left: 20%;
+}
+.cookie:active {
+  height: 550px;
+  widows: 550px;
+  position: absolute;
+  left: 18%;
+}
+.bu {
+  height: 50px;
+  width: 160px;
+  border: 2px;
+  border-radius: 20px;
+  font-size: 20px;
 }

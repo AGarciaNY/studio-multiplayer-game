@@ -6,6 +6,7 @@ export default class ClickableCookie extends React.Component {
       <div>
         <p>{this.props.score}</p>
         <img
+          className="cookie"
           src="http://clipart-library.com/img1/1150804.png"
           onClick={this.props.clickHandler}
         />

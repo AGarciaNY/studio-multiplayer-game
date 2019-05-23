@@ -29,6 +29,7 @@ export default class Scorebored extends React.Component {
             <td />
           </tr>
         </table>
+        {/* shop */}
         <table id="shop">
           <tr>
             <th>Items</th>
@@ -38,6 +39,7 @@ export default class Scorebored extends React.Component {
           <tr>
             <td>
               <button
+                className="bu"
                 id="Cursors"
                 disabled={this.props.currentScore < 50}
                 onClick={() => this.props.multipleClicks(1, 50)}
@@ -51,6 +53,7 @@ export default class Scorebored extends React.Component {
           <tr>
             <td>
               <button
+                className="bu"
                 id="Grandmas"
                 disabled={this.props.currentScore < 100}
                 onClick={() => this.props.multipleClicks(5, 100)}
@@ -64,6 +67,7 @@ export default class Scorebored extends React.Component {
           <tr>
             <td>
               <button
+                className="bu"
                 id="Farms"
                 disabled={this.props.currentScore < 500}
                 onClick={() => this.props.multipleClicks(10, 500)}
@@ -77,6 +81,7 @@ export default class Scorebored extends React.Component {
           <tr>
             <td>
               <button
+                className="bu"
                 id="Factories"
                 disabled={this.props.currentScore < 1000}
                 onClick={() => this.props.multipleClicks(25, 1000)}
@@ -90,6 +95,7 @@ export default class Scorebored extends React.Component {
           <tr>
             <td>
               <button
+                className="bu"
                 id="MegaFactory"
                 disabled={this.props.currentScore < 10000}
                 onClick={() => this.props.multipleClicks(100, 10000)}
