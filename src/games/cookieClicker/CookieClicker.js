@@ -108,7 +108,7 @@ export default class CookieClicker extends GameComponent {
         timelefts: that.state.timelefts,
         hasGameStarted: true
       });
-    }, 100);
+    }, 1000);
   }
 
   render() {
