@@ -214,6 +214,12 @@ export default class CookieClicker extends GameComponent {
           />
         </div>
       );
+    } else if (
+      this.state.hasGameStarted &&
+      this.getSessionCreatorUserId() === this.getMyUserId() &&
+      this.state.timeleftm === 0 &&
+      this.state.timelefts === 0
+    ) {
     }
   }
 }
