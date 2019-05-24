@@ -84,6 +84,21 @@ export default class CookieClicker extends GameComponent {
       return "Losing";
     }
   }
+  winOrLos() {
+    var winner = null;
+    if (this.state.hostScore > this.state.guestScore) {
+      winner = this.getSessionCreatorUserId();
+    } else if (this.state.hostScore < this.state.guestScore) {
+      winner = this.getSessionUserIds()[1];
+    }
+    if (winner === null) {
+      return "Tied";
+    } else if (winner === this.getMyUserId()) {
+      return "You win";
+    } else {
+      return "you lost";
+    }
+  }
 
   startGame(time) {
     this.getSessionDatabaseRef().update({
@@ -108,7 +123,7 @@ export default class CookieClicker extends GameComponent {
         timelefts: that.state.timelefts,
         hasGameStarted: true
       });
-    }, 1000);
+    }, 100);
   }
 
   render() {
@@ -162,64 +177,76 @@ export default class CookieClicker extends GameComponent {
       this.state.hasGameStarted &&
       this.getSessionCreatorUserId() === this.getMyUserId()
     ) {
-      return (
-        <div>
-          <Scorebored
-            PlayerOne={UserApi.getName(this.getSessionUserIds()[0])}
-            PlayerTwo={UserApi.getName(this.getSessionUserIds()[1])}
-            p1s={this.state.hostScore}
-            p2s={this.state.guestScore}
-            winOrLoss={this.winningOrLosing()}
-            startTimemin={this.state.timeleftm}
-            startTimesec={this.state.timelefts}
-            currentScore={this.state.hostScore}
-            multipleClicks={(number, cost) => this.multipleClicks(number, cost)}
-          />
-          <Cookie
-            clickHandler={() => this.updateScore()}
-            score={this.state.hostScore}
-          />
-          <GameOver
-            winOrLoss={this.winningOrLosing()}
-            startTimemin={this.state.timeleftm}
-            startTimesec={this.state.timelefts}
-          />
-        </div>
-      );
+      if (this.state.timeleftm === 0 && this.state.timelefts === 0) {
+        return (
+          <div>
+            <GameOver
+              winOrLoss={this.winOrLos()}
+              startTimemin={this.state.timeleftm}
+              startTimesec={this.state.timelefts}
+            />
+          </div>
+        );
+      } else {
+        return (
+          <div>
+            <Scorebored
+              PlayerOne={UserApi.getName(this.getSessionUserIds()[0])}
+              PlayerTwo={UserApi.getName(this.getSessionUserIds()[1])}
+              p1s={this.state.hostScore}
+              p2s={this.state.guestScore}
+              winOrLoss={this.winningOrLosing()}
+              startTimemin={this.state.timeleftm}
+              startTimesec={this.state.timelefts}
+              currentScore={this.state.hostScore}
+              multipleClicks={(number, cost) =>
+                this.multipleClicks(number, cost)
+              }
+            />
+            <Cookie
+              clickHandler={() => this.updateScore()}
+              score={this.state.hostScore}
+            />
+          </div>
+        );
+      }
     } else if (
       this.state.hasGameStarted &&
       this.getSessionCreatorUserId() !== this.getMyUserId()
     ) {
-      return (
-        <div>
-          <Scorebored
-            PlayerOne={UserApi.getName(this.getSessionUserIds()[0])}
-            PlayerTwo={UserApi.getName(this.getSessionUserIds()[1])}
-            p1s={this.state.hostScore}
-            p2s={this.state.guestScore}
-            winOrLoss={this.state.winningOrLosing}
-            startTimemin={this.state.timeleftm}
-            startTimesec={this.state.timelefts}
-            currentScore={this.state.guestScore}
-            multipleClicks={(number, cost) => this.multipleClicks(number, cost)}
-          />
-          <Cookie
-            clickHandler={() => this.updateScore()}
-            score={this.state.guestScore}
-          />
-          <GameOver
-            winOrLoss={this.winningOrLosing()}
-            startTimemin={this.state.timeleftm}
-            startTimesec={this.state.timelefts}
-          />
-        </div>
-      );
-    } else if (
-      this.state.hasGameStarted &&
-      this.getSessionCreatorUserId() === this.getMyUserId() &&
-      this.state.timeleftm === 0 &&
-      this.state.timelefts === 0
-    ) {
+      if (this.state.timeleftm === 0 && this.state.timelefts === 0) {
+        return (
+          <div>
+            <GameOver
+              winOrLoss={this.winOrLos()}
+              startTimemin={this.state.timeleftm}
+              startTimesec={this.state.timelefts}
+            />
+          </div>
+        );
+      } else {
+        return (
+          <div>
+            <Scorebored
+              PlayerOne={UserApi.getName(this.getSessionUserIds()[0])}
+              PlayerTwo={UserApi.getName(this.getSessionUserIds()[1])}
+              p1s={this.state.hostScore}
+              p2s={this.state.guestScore}
+              winOrLoss={this.state.winningOrLosing()}
+              startTimemin={this.state.timeleftm}
+              startTimesec={this.state.timelefts}
+              currentScore={this.state.guestScore}
+              multipleClicks={(number, cost) =>
+                this.multipleClicks(number, cost)
+              }
+            />
+            <Cookie
+              clickHandler={() => this.updateScore()}
+              score={this.state.guestScore}
+            />
+          </div>
+        );
+      }
     }
   }
 }
