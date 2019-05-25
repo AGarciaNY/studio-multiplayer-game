@@ -11,7 +11,7 @@ export default class ClickableCookie extends React.Component {
           onClick={this.props.clickHandler}
         />
         <audio className="music" id="myAudio" controls autoplay loop>
-          <source src="music/win.mp3" type="audio/mpeg" />
+          <source src="Music/win.mp3" type="audio/mpeg" />
         </audio>
       </div>
     );

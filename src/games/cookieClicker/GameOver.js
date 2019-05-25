@@ -7,7 +7,7 @@ export default class GameOver extends React.Component {
       return (
         <div>
           <div>
-            <p>Game Over</p>
+            <p>Game Over You</p>
             <p>{this.props.winOrLoss}</p>
           </div>
         </div>
