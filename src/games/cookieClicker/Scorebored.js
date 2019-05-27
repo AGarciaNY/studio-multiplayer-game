@@ -14,7 +14,7 @@ export default class Scorebored extends React.Component {
             <th>Player two:{this.props.PlayerTwo}</th>
           </tr>
           <tr className="playersc">
-            <td>Score:{this.props.p1s}</td>
+            <td className="playerscore">Score:{this.props.p1s}</td>
             <td>Time left:</td>
             <td>Score:{this.props.p2s}</td>
           </tr>
@@ -42,7 +42,7 @@ export default class Scorebored extends React.Component {
                 className="bu"
                 id="Cursors"
                 disabled={this.props.currentScore < 50}
-                onClick={() => this.props.multipleClicks(1, 50)}
+                onClick={() => this.props.multipleClicks(3, 50)}
               >
                 Cursor
               </button>
@@ -56,7 +56,7 @@ export default class Scorebored extends React.Component {
                 className="bu"
                 id="Grandmas"
                 disabled={this.props.currentScore < 100}
-                onClick={() => this.props.multipleClicks(5, 100)}
+                onClick={() => this.props.multipleClicks(15, 100)}
               >
                 Grandmas
               </button>
@@ -70,7 +70,7 @@ export default class Scorebored extends React.Component {
                 className="bu"
                 id="Farms"
                 disabled={this.props.currentScore < 500}
-                onClick={() => this.props.multipleClicks(10, 500)}
+                onClick={() => this.props.multipleClicks(30, 500)}
               >
                 Farms
               </button>
@@ -84,7 +84,7 @@ export default class Scorebored extends React.Component {
                 className="bu"
                 id="Factories"
                 disabled={this.props.currentScore < 1000}
-                onClick={() => this.props.multipleClicks(25, 1000)}
+                onClick={() => this.props.multipleClicks(75, 1000)}
               >
                 Factories
               </button>
@@ -98,7 +98,7 @@ export default class Scorebored extends React.Component {
                 className="bu"
                 id="MegaFactory"
                 disabled={this.props.currentScore < 10000}
-                onClick={() => this.props.multipleClicks(100, 10000)}
+                onClick={() => this.props.multipleClicks(300, 10000)}
               >
                 Mega Factory
               </button>

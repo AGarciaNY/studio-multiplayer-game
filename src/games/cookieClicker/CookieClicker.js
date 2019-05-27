@@ -30,7 +30,7 @@ export default class CookieClicker extends GameComponent {
         that.getSessionDatabaseRef().update({
           hostScore: that.state.hostScore + number
         });
-      }, 1000);
+      }, 3000);
     } else {
       this.getSessionDatabaseRef().update({
         guestScore: this.state.guestScore - cost
@@ -43,7 +43,7 @@ export default class CookieClicker extends GameComponent {
         that.getSessionDatabaseRef().update({
           guestScore: that.state.guestScore + number
         });
-      }, 1000);
+      }, 3000);
     }
   }
 
@@ -123,7 +123,7 @@ export default class CookieClicker extends GameComponent {
         timelefts: that.state.timelefts,
         hasGameStarted: true
       });
-    }, 100);
+    }, 1000);
   }
 
   render() {
@@ -228,11 +228,11 @@ export default class CookieClicker extends GameComponent {
         return (
           <div>
             <Scorebored
-              PlayerOne={UserApi.getName(this.getSessionUserIds()[0])}
-              PlayerTwo={UserApi.getName(this.getSessionUserIds()[1])}
-              p1s={this.state.hostScore}
-              p2s={this.state.guestScore}
-              winOrLoss={this.state.winningOrLosing()}
+              PlayerOne={UserApi.getName(this.getSessionUserIds()[1])}
+              PlayerTwo={UserApi.getName(this.getSessionUserIds()[0])}
+              p1s={this.state.guestScore}
+              p2s={this.state.hostScore}
+              winOrLoss={this.winningOrLosing()}
               startTimemin={this.state.timeleftm}
               startTimesec={this.state.timelefts}
               currentScore={this.state.guestScore}
