@@ -5,7 +5,7 @@ import App from "./App";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import React from "react";
 import ReactDOM from "react-dom";
-import registerServiceWorker from "./registerServiceWorker";
+import registerServiceWzzorker from "./registerServiceWorker";
 import { BrowserRouter } from "react-router-dom";
 
 const WrappedApp = () => (
@@ -17,4 +17,3 @@ const WrappedApp = () => (
 );
 
 ReactDOM.render(<WrappedApp />, document.getElementById("root"));
-registerServiceWorker();

@@ -71,3 +71,15 @@ tr {
 .playerscore {
   font-size: 30px;
 }
+#youlost {
+  color: red;
+}
+#youwon {
+  color: green;
+}
+.wor [target="Winning"] {
+  color: green;
+}
+.wor [target="Losing"] {
+  color: red;
+}

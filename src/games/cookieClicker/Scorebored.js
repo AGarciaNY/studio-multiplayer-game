@@ -7,26 +7,24 @@ export default class Scorebored extends React.Component {
     return (
       <div>
         <table className="score">
-          <caption>ScoreBored</caption>
+          <div id="spase" />
           <tr className="playersname">
             <th>Player One:{this.props.PlayerOne}</th>
-            <th>{this.props.winOrLoss}</th>
+            <th className="wor" target={this.props.winOrLoss}>
+              {this.props.winOrLoss}
+            </th>
             <th>Player two:{this.props.PlayerTwo}</th>
           </tr>
           <tr className="playersc">
             <td className="playerscore">Score:{this.props.p1s}</td>
-            <td>Time left:</td>
-            <td>Score:{this.props.p2s}</td>
-          </tr>
-          <tr>
-            <td />
             <td>
+              Time left:
               <Time
                 minutes={this.props.startTimemin}
                 seconds={this.props.startTimesec}
               />
             </td>
-            <td />
+            <td>Score:{this.props.p2s}</td>
           </tr>
         </table>
         {/* shop */}

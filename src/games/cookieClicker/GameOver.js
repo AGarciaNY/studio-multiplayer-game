@@ -8,7 +8,9 @@ export default class GameOver extends React.Component {
         <div>
           <div>
             <p className="GOV">Game Over</p>
-            <p className="WOR">{this.props.winOrLoss}</p>
+            <p className="WOR" id="youwon">
+              {this.props.winOrLoss}
+            </p>
           </div>
         </div>
       );
@@ -17,8 +19,9 @@ export default class GameOver extends React.Component {
         <div>
           <div>
             <p className="GOV">Game Over</p>
-            <p className="WOR">{this.props.winOrLoss}</p>
-            <p>Better Luck Next time</p>
+            <p className="WOR" id="youlost">
+              Better Luck Next time
+            </p>
           </div>
         </div>
       );

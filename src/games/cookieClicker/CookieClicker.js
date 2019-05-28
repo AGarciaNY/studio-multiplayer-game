@@ -123,7 +123,7 @@ export default class CookieClicker extends GameComponent {
         timelefts: that.state.timelefts,
         hasGameStarted: true
       });
-    }, 100);
+    }, 100000);
   }
 
   render() {
@@ -147,21 +147,17 @@ export default class CookieClicker extends GameComponent {
           <button
             className="stime"
             id="fivem"
-            onClick={() => this.startGame(5)}
+            onClick={() => this.startGame(2)}
           >
             5 minuts
           </button>
-          <button
-            className="stime"
-            id="tenm"
-            onClick={() => this.startGame(10)}
-          >
+          <button className="stime" id="tenm" onClick={() => this.startGame(3)}>
             10 minuts
           </button>
           <button
             className="stime"
             id="fithteenm"
-            onClick={() => this.startGame(15)}
+            onClick={() => this.startGame(5)}
           >
             15 minuts
           </button>
