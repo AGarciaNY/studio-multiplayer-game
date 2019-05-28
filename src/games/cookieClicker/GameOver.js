@@ -3,13 +3,25 @@ import "./cookie.css";
 
 export default class GameOver extends React.Component {
   render() {
-    return (
-      <div>
+    if (this.props.winOrLoss === "You Win") {
+      return (
         <div>
-          <p className="GOV">Game Over</p>
-          <p className="WOR">{this.props.winOrLoss}</p>
+          <div>
+            <p className="GOV">Game Over</p>
+            <p className="WOR">{this.props.winOrLoss}</p>
+          </div>
         </div>
-      </div>
-    );
+      );
+    } else if (this.props.winOrLoss === "You Lost") {
+      return (
+        <div>
+          <div>
+            <p className="GOV">Game Over</p>
+            <p className="WOR">{this.props.winOrLoss}</p>
+            <p>Better Luck Next time</p>
+          </div>
+        </div>
+      );
+    }
   }
 }

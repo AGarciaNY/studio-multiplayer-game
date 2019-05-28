@@ -94,9 +94,9 @@ export default class CookieClicker extends GameComponent {
     if (winner === null) {
       return "Tied";
     } else if (winner === this.getMyUserId()) {
-      return "You win";
+      return "You Win";
     } else {
-      return "you lost";
+      return "You Lost";
     }
   }
 
@@ -123,7 +123,7 @@ export default class CookieClicker extends GameComponent {
         timelefts: that.state.timelefts,
         hasGameStarted: true
       });
-    }, 1000);
+    }, 100);
   }
 
   render() {
