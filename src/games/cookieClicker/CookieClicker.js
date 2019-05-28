@@ -232,6 +232,7 @@ export default class CookieClicker extends GameComponent {
               PlayerTwo={UserApi.getName(this.getSessionUserIds()[0])}
               p1s={this.state.guestScore}
               p2s={this.state.hostScore}
+
               winOrLoss={this.winningOrLosing()}
               startTimemin={this.state.timeleftm}
               startTimesec={this.state.timelefts}

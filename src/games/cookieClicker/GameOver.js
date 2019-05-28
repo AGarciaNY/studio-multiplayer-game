@@ -8,6 +8,7 @@ export default class GameOver extends React.Component {
         <div>
           <p className="GOV">Game Over</p>
           <p className="WOR">{this.props.winOrLoss}</p>
+
         </div>
       </div>
     );
