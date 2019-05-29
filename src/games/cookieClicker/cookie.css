@@ -40,13 +40,15 @@ tr {
   height: 500px;
   widows: 500px;
   position: absolute;
-  left: 20%;
+  left: 15%;
+  top: 30%;
 }
 .cookie:active {
   height: 550px;
   widows: 550px;
   position: absolute;
-  left: 18%;
+  left: 13%;
+  top: 28%;
 }
 .bu {
   height: 50px;
@@ -82,4 +84,18 @@ tr {
 }
 .wor [target="Losing"] {
   color: red;
+}
+#fcookie {
+  position: absolute;
+  left: 15%;
+  top: 30%;
+  height: 500px;
+  widows: 500px;
+}
+#scookie {
+  position: absolute;
+  left: 15%;
+  top: 30%;
+  height: 500px;
+  widows: 500px;
 }

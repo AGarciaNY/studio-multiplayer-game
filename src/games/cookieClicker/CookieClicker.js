@@ -1,3 +1,4 @@
+import "./cookie.css";
 import GameComponent from "../../GameComponent.js";
 import React from "react";
 import UserApi from "../../UserApi.js";
@@ -123,7 +124,7 @@ export default class CookieClicker extends GameComponent {
         timelefts: that.state.timelefts,
         hasGameStarted: true
       });
-    }, 100000);
+    }, 1000);
   }
 
   render() {
@@ -136,37 +137,51 @@ export default class CookieClicker extends GameComponent {
       this.getSessionCreatorUserId() === this.getMyUserId()
     ) {
       return (
-        <div className="buttonholder">
-          <button
-            className="stime"
-            id="fivem"
-            onClick={() => this.startGame(1)}
-          >
-            1 minuts
-          </button>
-          <button
-            className="stime"
-            id="fivem"
-            onClick={() => this.startGame(2)}
-          >
-            5 minuts
-          </button>
-          <button className="stime" id="tenm" onClick={() => this.startGame(3)}>
-            10 minuts
-          </button>
-          <button
-            className="stime"
-            id="fithteenm"
-            onClick={() => this.startGame(5)}
-          >
-            15 minuts
-          </button>
+        <div>
+          <div className="buttonholder">
+            <button
+              className="stime"
+              id="fivem"
+              onClick={() => this.startGame(1)}
+            >
+              1 minuts
+            </button>
+            <button
+              className="stime"
+              id="fivem"
+              onClick={() => this.startGame(2)}
+            >
+              2 minuts
+            </button>
+            <button
+              className="stime"
+              id="tenm"
+              onClick={() => this.startGame(3)}
+            >
+              3 minuts
+            </button>
+            <button
+              className="stime"
+              id="fithteenm"
+              onClick={() => this.startGame(5)}
+            >
+              5 minuts
+            </button>
+          </div>
+          <div>
+            <img id="fcookie" src="https://i.imgur.com/vX0ESqI.png" />
+          </div>
         </div>
       );
     } else if (!this.state.hasGameStarted) {
       return (
         <div>
-          <p>Waiting for Host to start the game</p>
+          <div>
+            <p>Waiting for Host to start the game</p>
+          </div>
+          <div>
+            <img id="scookie" src="https://i.imgur.com/vX0ESqI.png" />
+          </div>
         </div>
       );
     } else if (

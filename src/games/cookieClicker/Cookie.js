@@ -7,7 +7,7 @@ export default class ClickableCookie extends React.Component {
         <p>{this.props.score}</p>
         <img
           className="cookie"
-          src="Cooky.png"
+          src="https://i.imgur.com/vX0ESqI.png"
           onClick={this.props.clickHandler}
         />
         <audio className="music" id="myAudio" controls autoPlay loop>
