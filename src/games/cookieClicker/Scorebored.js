@@ -49,7 +49,7 @@ export default class Scorebored extends React.Component {
             </td>
             <td>
               <img
-                class="cookiep"
+                className="cookiep"
                 src="https://ya-webdesign.com/images250_/cookie-clipart-png-2.png"
               />
               50
@@ -70,7 +70,7 @@ export default class Scorebored extends React.Component {
             <td>
               {" "}
               <img
-                class="cookiep"
+                className="cookiep"
                 src="https://ya-webdesign.com/images250_/cookie-clipart-png-2.png"
               />
               100
@@ -110,7 +110,7 @@ export default class Scorebored extends React.Component {
             </td>
             <td>
               <img
-                class="cookiep"
+                className="cookiep"
                 src="https://ya-webdesign.com/images250_/cookie-clipart-png-2.png"
               />
               1000
@@ -130,7 +130,7 @@ export default class Scorebored extends React.Component {
             </td>
             <td>
               <img
-                class="cookiep"
+                className="cookiep"
                 src="https://ya-webdesign.com/images250_/cookie-clipart-png-2.png"
               />
               10000
