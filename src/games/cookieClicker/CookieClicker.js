@@ -179,7 +179,7 @@ export default class CookieClicker extends GameComponent {
         <div>
           <div className="gif" />
           <div>
-            <p>Waiting for Host to start the game</p>
+            <p className="cooltext">Waiting for Host to start the game</p>
           </div>
           <div>
             <img id="scookie" src="https://i.imgur.com/vX0ESqI.png" />
