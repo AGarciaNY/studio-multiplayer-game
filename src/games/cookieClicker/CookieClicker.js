@@ -164,9 +164,9 @@ export default class CookieClicker extends GameComponent {
             <button
               className="stime"
               id="fithteenm"
-              onClick={() => this.startGame(5)}
+              onClick={() => this.startGame(4)}
             >
-              5 minuts
+              4 minuts
             </button>
           </div>
           <div>

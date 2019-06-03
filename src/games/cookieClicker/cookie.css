@@ -8,10 +8,12 @@
   background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/cf2836cb-5893-4a6c-b156-5a89d94fc721/dce61tw-3cfde162-fb53-4b5a-96cd-ae1df756df65.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2NmMjgzNmNiLTU4OTMtNGE2Yy1iMTU2LTVhODlkOTRmYzcyMVwvZGNlNjF0dy0zY2ZkZTE2Mi1mYjUzLTRiNWEtOTZjZC1hZTFkZjc1NmRmNjUuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.vEwtplf1FBeP01zGIPa3zIMEz7mUudddreie2iCbe9Q");
 }
 .score {
-  width: 100%;
+  width: 90%;
   border: 2px solid #9200ed;
   border-collapse: collapse;
   text-align: center;
+  position: absolute;
+  left: 5%;
 }
 .playersname th {
   border: 2px solid #9200ed;
@@ -94,12 +96,6 @@ tr {
 #youwon {
   color: green;
 }
-.wor [target="Winning"] {
-  color: green;
-}
-.wor [target="Losing"] {
-  color: red;
-}
 #fcookie {
   position: absolute;
   left: 15%;
@@ -128,11 +124,47 @@ tr {
   top: 300px;
 }
 .cooltext {
-  color: white;
+  font-size: 80px;
+  color: #fff;
+  text-align: center;
+  -webkit-animation: glow 300s ease-in-out infinite alternate;
+  -moz-animation: glow 300s ease-in-out infinite alternate;
+  animation: glow 300s ease-in-out infinite alternate;
 }
-.cooltext:after {
-  background: linear-gradient(60deg, red, yellow, red, yellow, red);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: rgba(248, 174, 174, 0.2);
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 20px #e60073, 0 0 30px #e60073;
+  }
+
+  to {
+    text-shadow: 0 0 30px #ff4da6, 0 0 40px #ff4da6;
+  }
+}
+#win {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  background-image: url("https://www.gifmania.com/Gif-Animados-Objetos/Imagenes-Juguetes/Globos/Globos-Colores-Volando-84851.gif");
+}
+.ywn {
+  font-size: 80px;
+  color: #fff;
+  text-align: center;
+  -webkit-animation: ywn 3s ease-in-out infinite alternate;
+  -moz-animation: ywn 3s ease-in-out infinite alternate;
+  animation: ywn 3s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes ywn {
+  from {
+    text-shadow: 0 0 20px #e60073, 0 0 30px #e60073;
+  }
+
+  to {
+    text-shadow: 0 0 30px #ff4da6, 0 0 40px #ff4da6;
+  }
 }

@@ -6,9 +6,10 @@ export default class GameOver extends React.Component {
     if (this.props.winOrLoss === "You Win") {
       return (
         <div>
+          <div id="win" />
           <div>
-            <p className="GOV">Game Over</p>
-            <p className="WOR" id="youwon">
+            <p className="GOV ywn">Game Over</p>
+            <p className="WOR ywn" id="youwon">
               {this.props.winOrLoss}
             </p>
           </div>
