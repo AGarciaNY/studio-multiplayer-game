@@ -6,7 +6,7 @@ export default class Scorebored extends React.Component {
   render() {
     return (
       <div>
-        <table className="score">
+        <table className="score cooltext">
           <div id="spase" />
           <tr className="playersname">
             <th>Player One:{this.props.PlayerOne}</th>
@@ -16,19 +16,21 @@ export default class Scorebored extends React.Component {
             <th>Player two:{this.props.PlayerTwo}</th>
           </tr>
           <tr className="playersc">
-            <td className="playerscore">Score:{this.props.p1s}</td>
-            <td>
+            <td className="playerscore">
+              Your Cookies:<b className="tc">{this.props.p1s}</b>
+            </td>
+            <td className="timer">
               Time left:
               <Time
                 minutes={this.props.startTimemin}
                 seconds={this.props.startTimesec}
               />
             </td>
-            <td>Score:{this.props.p2s}</td>
+            <td>Grandma's:{this.props.p2s}</td>
           </tr>
         </table>
         {/* shop */}
-        <table id="shop">
+        <table className="cooltext" id="shop">
           <tr>
             <th>Items</th>
             <th>price</th>
@@ -45,7 +47,13 @@ export default class Scorebored extends React.Component {
                 Cursor
               </button>
             </td>
-            <td>$50</td>
+            <td>
+              <img
+                class="cookiep"
+                src="https://ya-webdesign.com/images250_/cookie-clipart-png-2.png"
+              />
+              50
+            </td>
             <td>produces 1 cookie per second</td>
           </tr>
           <tr>
@@ -59,7 +67,14 @@ export default class Scorebored extends React.Component {
                 Grandmas
               </button>
             </td>
-            <td>$100</td>
+            <td>
+              {" "}
+              <img
+                class="cookiep"
+                src="https://ya-webdesign.com/images250_/cookie-clipart-png-2.png"
+              />
+              100
+            </td>
             <td>produces 5 cookies per second</td>
           </tr>
           <tr>
@@ -73,7 +88,13 @@ export default class Scorebored extends React.Component {
                 Farms
               </button>
             </td>
-            <td>$500</td>
+            <td>
+              <img
+                class="cookiep"
+                src="https://ya-webdesign.com/images250_/cookie-clipart-png-2.png"
+              />
+              500
+            </td>
             <td>produces 10 cookies per second</td>
           </tr>
           <tr>
@@ -87,7 +108,13 @@ export default class Scorebored extends React.Component {
                 Factories
               </button>
             </td>
-            <td>$1000</td>
+            <td>
+              <img
+                class="cookiep"
+                src="https://ya-webdesign.com/images250_/cookie-clipart-png-2.png"
+              />
+              1000
+            </td>
             <td>produces 25 cookies per second</td>
           </tr>
           <tr>
@@ -101,7 +128,13 @@ export default class Scorebored extends React.Component {
                 Mega Factory
               </button>
             </td>
-            <td>$10000</td>
+            <td>
+              <img
+                class="cookiep"
+                src="https://ya-webdesign.com/images250_/cookie-clipart-png-2.png"
+              />
+              10000
+            </td>
             <td>produces 100 Cookies per second</td>
           </tr>
         </table>

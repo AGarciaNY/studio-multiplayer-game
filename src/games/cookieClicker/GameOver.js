@@ -19,7 +19,7 @@ export default class GameOver extends React.Component {
         <div>
           <div>
             <p className="GOV">Game Over</p>
-            <p className="WOR" id="youlost">
+            <p className="WOL" id="youlost">
               Better Luck Next time
             </p>
           </div>

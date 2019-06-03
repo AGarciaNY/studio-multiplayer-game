@@ -1,29 +1,43 @@
+.gif {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/cf2836cb-5893-4a6c-b156-5a89d94fc721/dce61tw-3cfde162-fb53-4b5a-96cd-ae1df756df65.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2NmMjgzNmNiLTU4OTMtNGE2Yy1iMTU2LTVhODlkOTRmYzcyMVwvZGNlNjF0dy0zY2ZkZTE2Mi1mYjUzLTRiNWEtOTZjZC1hZTFkZjc1NmRmNjUuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.vEwtplf1FBeP01zGIPa3zIMEz7mUudddreie2iCbe9Q");
+}
 .score {
   width: 100%;
-  border: 2px solid black;
+  border: 2px solid #9200ed;
   border-collapse: collapse;
   text-align: center;
 }
 .playersname th {
-  border: 2px solid black;
+  border: 2px solid #9200ed;
   border-collapse: collapse;
+  color: white;
 }
 td {
-  border-left: 2px solid black;
+  border-left: 2px solid #9200ed;
+  border: 2px solid #9200ed;
 }
 #shop {
   width: 50%;
   position: absolute;
   right: 0.1px;
   top: 30%;
-  border: 1px solid black;
+  border: 1px solid #9200ed;
   border-collapse: collapse;
 }
 tr {
   text-align: center;
-  border: 1px solid black;
+  border: 1px solid #9200ed;
   border-collapse: collapse;
   font-size: 20px;
+}
+.cookiep {
+  height: 20px;
 }
 .buttonholder {
   position: absolute;
@@ -37,15 +51,15 @@ tr {
   font-size: 10px;
 }
 .cookie {
-  height: 500px;
-  widows: 500px;
+  height: 400px;
+  widows: 400px;
   position: absolute;
   left: 15%;
   top: 30%;
 }
 .cookie:active {
-  height: 550px;
-  widows: 550px;
+  height: 450px;
+  widows: 450px;
   position: absolute;
   left: 13%;
   top: 28%;
@@ -71,7 +85,8 @@ tr {
   top: 300px;
 }
 .playerscore {
-  font-size: 30px;
+  font-size: 30spx;
+  font-weight: 900;
 }
 #youlost {
   color: red;
@@ -89,13 +104,31 @@ tr {
   position: absolute;
   left: 15%;
   top: 30%;
-  height: 500px;
-  widows: 500px;
+  height: 400px;
+  widows: 400px;
 }
 #scookie {
   position: absolute;
   left: 15%;
   top: 30%;
-  height: 500px;
-  widows: 500px;
+  height: 400px;
+  widows: 400px;
+}
+.timer {
+  font-size: 30px;
+}
+.tc {
+  font-size: 30px;
+}
+.WOL {
+  font-size: 60px;
+  font-weight: bold;
+  position: absolute;
+  left: 30%;
+  top: 300px;
+}
+.cooltext {
+  background: linear-gradient(60deg, red, yellow, red, yellow, red);
+  -webkit-background-clip: text;
+  color: rgba(248, 174, 174, 0.2);
 }

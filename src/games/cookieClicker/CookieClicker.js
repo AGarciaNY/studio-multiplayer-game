@@ -138,6 +138,7 @@ export default class CookieClicker extends GameComponent {
     ) {
       return (
         <div>
+          <div className="gif" />
           <div className="buttonholder">
             <button
               className="stime"
@@ -176,6 +177,7 @@ export default class CookieClicker extends GameComponent {
     } else if (!this.state.hasGameStarted) {
       return (
         <div>
+          <div className="gif" />
           <div>
             <p>Waiting for Host to start the game</p>
           </div>
@@ -201,6 +203,7 @@ export default class CookieClicker extends GameComponent {
       } else {
         return (
           <div>
+            <div className="gif" />
             <Scorebored
               PlayerOne={UserApi.getName(this.getSessionUserIds()[0])}
               PlayerTwo={UserApi.getName(this.getSessionUserIds()[1])}
@@ -238,6 +241,7 @@ export default class CookieClicker extends GameComponent {
       } else {
         return (
           <div>
+            <div className="gif" />
             <Scorebored
               PlayerOne={UserApi.getName(this.getSessionUserIds()[1])}
               PlayerTwo={UserApi.getName(this.getSessionUserIds()[0])}
